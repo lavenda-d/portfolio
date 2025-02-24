@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #f0f0f0;
+  background: linear-gradient(to right, #f8fbff, #e7a6f5);
+  overflow-x: hidden;
+}
+
+header {
+  background: linear-gradient(to right,#f8fbff,  #e7a6f5,#f8fbff);
+  color: #31132f;
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+/* Fade-in from right to center */
+
+/* Side Menu Styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden off-screen initially */
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to right, #f8fbff, #e7a6f5);
+  color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transition: left 0.3s ease; /* Smooth slide-in effect */
+}
+
+.side-menu.open {
+  left: 0; /* Show menu when open */
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #333;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: rotate(90deg);
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.menu-content a {
+  text-decoration: none;
+  color: #030303;
+  font-size: 20px;
+  margin: 15px 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.menu-content a:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+/* Basic styling for the fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateX(100px); /* Start from the right */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Smooth transition */
+}
+
+
+
+/* Animation to move element from the right to the center while fading in */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /* Start from the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Move to the center */
+  }
+}
+
+/* Trigger animation when the element is in the viewport */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateX(0); /* Element fully visible */
+}
+
+/* Optional: Add a delay to stagger the fade-in effect */
+.fade-in-delay {
+  animation-delay: 1.5s;
+}
+
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 50px 0;
+  position: relative;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  color: #000000;
+  
+}
+
+.separate-about-text{
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.about-text:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.separate-about-text:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Prevent wrapping for the columns */
+  gap: 20px; /* Add spacing between the columns */
+
+}
+
+.skills-images-container {
+  display: flex;
+  flex-direction: column; /* Arrange images vertically */
+  flex: 1.0; /* Set appropriate size for the image column */
+  gap: 20px; /* Add spacing between images */
+}
+
+.skills-images-container:hover{
+  transform: scale(1.05);
+}
+
+.skills-text {
+  flex: 1;
+  color: #000000;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.separate-skills-text {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+.separate-skills-text:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.skills-images {
+  flex: 1; /* Ensure the image container has a fixed size */
+  margin-top: 50px;
+  margin-left: 20px;
+  width: 80%; /* Space between text and image */
+}
+
+.skills-images img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.skills-images:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+ul {
+  list-style-type: disc; /* Default bullet points */
+  padding-left: 20px; /* Add space before the bullets */
+  margin: 10px 0; /* Add space around the list */
+  font-size: 25px; /* Adjust font size */
+  line-height: 1.8; /* Improve spacing between list items */
+  color: #333; /* Text color */
+}
+
+ul li {
+  margin-bottom: 5px; /* Space between list items */
+}
+
+ul li::marker {
+  color: #6913da; /* Customize the bullet point color */
+  font-size: 1.2em; /* Make the bullet slightly larger */
+}
+
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+
+}
+
+
+
+.project-card {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  color: #000000;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right,#f8fbff,  #e7a6f5,#f8fbff);
+  color: #0e0d0d;
+  margin-top: 50px;
+}
+
+footer .social-links {
+  margin: 10px 0;
+}
+
+footer .social-links a {
+  margin: 0 10px;
+  color: #0e0d0d;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+  color: #7e27a0;
+}
+
+@media (max-width: 768px) {
+  .about, .skills, .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+hr {
+  border: 0;               /* Removes the default border */
+  height: 2px;             /* Sets the thickness of the line */
+  background-color: #000000; /* Sets the color of the line */
+  margin: 20px 0;          /* Adds spacing above and below the line */
+}
+
+/* General Section Styling */
+.contact {
+  padding: 40px;
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 8px;
+ 
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Form Styling */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 20px;
+  
+}
+
+#contact-form label {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #e18be3;
+  outline: none;
+}
+
+#contact-form button {
+  background: linear-gradient(to right, #e7a6f5,  #cc52e8);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: #c332ef;
+}
+
+/* Optional Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px;
+  }
+
+  #contact-form {
+    width: 90%;
+  }
+}
